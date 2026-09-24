@@ -966,6 +966,19 @@ async function callTool(name: string, args: Record<string, unknown>): Promise<un
         data_version: (await meta())?.data_version ?? 'GLOBOCAN',
         ...byMeasure,
         source: CREDIT,
+        // Measured (fleet #2324): globocan_cancer_in_country is the #13
+        // single-tool entry point in 30d, 24 distinct external callers who
+        // get one cancer/country figure and never ask about the country's
+        // overall cancer burden. iso3 is the resolved country this response
+        // already matched (not an echo of the caller's raw input —
+        // "India"/"IND"/"in" all resolve the same way); fall back to the
+        // resolved label on the rare territory with no iso3, since a null
+        // arg would be a wrong hint.
+        next: {
+          tool: 'globocan_country_profile',
+          args: { country: pop.iso3 ?? pop.label },
+          why: `The full cancer burden for ${pop.label} — leading sites by cases and deaths, not just ${can.label}.`,
+        },
       };
     }
 

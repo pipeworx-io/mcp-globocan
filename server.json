@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/globocan",
   "title": "Globocan",
   "description": "GLOBOCAN — the IARC/WHO Global Cancer Observatory.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://pipeworx.io/packs/globocan",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-globocan",
