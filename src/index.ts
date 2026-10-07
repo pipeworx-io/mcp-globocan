@@ -1009,6 +1009,14 @@ async function callTool(name: string, args: Record<string, unknown>): Promise<un
         // "India"/"IND"/"in" all resolve the same way); fall back to the
         // resolved label on the rare territory with no iso3, since a null
         // arg would be a wrong hint.
+        //
+        // 14d re-measure (fleet #2325, 2026-10-07, same methodology as
+        // above): single-tool-only callers 24 -> 28 (total callers 76 ->
+        // 70), share 31.6% -> 40.0%, UP 8.4pt — the one shipped hint that
+        // moved the WRONG way. Small N (24-28) on both sides, so this could
+        // be noise, but it is also the one candidate worth a second look at
+        // the hint text itself if the next re-measure confirms the rise.
+        // Full comparison in the fleet #2325 close.
         next: {
           tool: 'globocan_country_profile',
           args: { country: pop.iso3 ?? pop.label },
