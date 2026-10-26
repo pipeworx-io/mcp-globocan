@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-globocan",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "GLOBOCAN — the IARC/WHO Global Cancer Observatory.",
   "type": "module",
   "main": "src/index.ts",
@@ -26,7 +26,7 @@
     "@cloudflare/workers-types": "^4.20260405.1"
   },
   "pipeworx": {
-    "sourceHash": "v1-0d934bc10acdbbce312bcee51a986682a5a1d2735f33659e1480c48e7bb087bd",
-    "sourceCommit": "be47827ad0f444e813e7224db0489c4ea890a30e"
+    "sourceHash": "v1-ac767605b9c92591d9624e08b6e4a8ebb43e860227ca4506ae8e81c5319e021b",
+    "sourceCommit": "445bacc5596a845c12d6945fbfcdf330ef60dcc4"
   }
 }
