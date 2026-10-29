@@ -1,0 +1,82 @@
+[
+  {
+    "name": "globocan_country_profile",
+    "description": "Cancer statistics for one country from the WHO/IARC Global Cancer Observatory (GLOBOCAN): total new cases, deaths and 5-year prevalence, plus the leading cancer sites ranked by new cases and by deaths, with age-standardised rates per 100,000. Use for \"how many people get cancer in Japan\", \"leading cause of cancer death in Brazil\", or any national cancer burden question.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string",
+          "description": "Country name or ISO3 code, e.g. \"Japan\" or \"JPN\"."
+        },
+        "sex": {
+          "type": "string",
+          "description": "both (default), male, or female.",
+          "enum": [
+            "both",
+            "male",
+            "female"
+          ]
+        },
+        "limit": {
+          "type": "number",
+          "description": "How many leading cancer sites to return per measure (default 10)."
+        }
+      },
+      "required": [
+        "country"
+      ]
+    }
+  },
+  {
+    "name": "globocan_cancer_in_country",
+    "description": "Figures for ONE cancer type in one country — new cases, deaths, 5-year prevalence, age-standardised rate and cumulative risk to age 74. Use when the question names both a cancer and a place, e.g. \"breast cancer cases in India\" or \"how many people die of stomach cancer in South Korea\".",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string",
+          "description": "Country name or ISO3 code."
+        },
+        "cancer": {
+          "type": "string",
+          "description": "Cancer site name or fragment, e.g. \"breast\", \"lung\", \"colorectum\"."
+        },
+        "sex": {
+          "type": "string",
+          "description": "both (default), male, or female.",
+          "enum": [
+            "both",
+            "male",
+            "female"
+          ]
+        }
+      },
+      "required": [
+        "country",
+        "cancer"
+      ]
+    }
+  },
+  {
+    "name": "globocan_countries",
+    "description": "List or search the countries and territories GLOBOCAN publishes cancer estimates for, with ISO3 codes, world region and Human Development Index band. Call this to find the exact country spelling the other tools expect.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Name fragment or ISO3 code. Omit to list all."
+        }
+      }
+    }
+  },
+  {
+    "name": "globocan_cancer_types",
+    "description": "List the 41 cancer sites GLOBOCAN reports, with their ICD-10 code ranges and whether a site is sex-specific. Call this to find the exact site name globocan_cancer_in_country expects.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+]

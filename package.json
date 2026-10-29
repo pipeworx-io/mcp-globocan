@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-globocan",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "GLOBOCAN — the IARC/WHO Global Cancer Observatory.",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-globocan": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "globocan"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-globocan.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/globocan",
   "pipeworx": {
-    "sourceHash": "v1-ac767605b9c92591d9624e08b6e4a8ebb43e860227ca4506ae8e81c5319e021b",
-    "sourceCommit": "445bacc5596a845c12d6945fbfcdf330ef60dcc4"
+    "mode": "gateway",
+    "slug": "globocan",
+    "gatewaySlug": "globocan",
+    "sourceHash": "v1-bc9e11014ab9d83596247a1cb59c0ca9bceaca46d69c940205ac94712c913822",
+    "sourceCommit": "4844029e402d6bd2fe735add8abf6d46735f8ed5"
   }
 }
